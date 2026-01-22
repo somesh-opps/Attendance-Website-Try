@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Security Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2563eb",
+              "background-light": "#f5f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="flex min-h-screen">
+<!-- Side Navigation Bar -->
+<aside class="w-64 flex-shrink-0 bg-[#111518]">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture of Alex Johnson" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhyw98uTu2g3x3C4o19vXipBSh7evkvXuevdCJJgdPsaMXIvsLSfR_DIezw0RBaT7UjwIbMGV8oowQup8EZVuGZnJmrCAWmAJljC-ggBLZc8OrakT0rrbn9uHql2GaoDUB3QgpOID3ql0ujrLnwfT0P8IeWNHQP1xftTZz3OVSEVGLpUD17SK5bXx6_gEU6-sxtkTL-Efdhor3L-NbPEi1uUCYjnyaNEuyo4QkvoyABzXZ_Vvpj9BxLWTCfXpXaSPPWZ7iziEiZrE");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">Alex Johnson</h1>
+<p class="text-[#9cabba] text-sm font-normal leading-normal">alex.j@university.edu</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#9cabba] hover:bg-[#283139] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#9cabba] hover:bg-[#283139] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">book</span>
+<p class="text-sm font-medium leading-normal">Courses</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#9cabba] hover:bg-[#283139] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+<p class="text-sm font-medium leading-normal">Grades</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#9cabba] hover:bg-[#283139] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<p class="text-sm font-medium leading-normal">Profile</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 400;">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#9cabba] hover:bg-[#283139] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium leading-normal">Log Out</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-4xl mx-auto">
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between gap-3 mb-8">
+<p class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Security &amp; Privacy</p>
+</div>
+<!-- Cards Container -->
+<div class="space-y-8">
+<!-- Change Password Card -->
+<div class="bg-white dark:bg-[#1b2127] rounded-xl border border-gray-200 dark:border-[#3b4854] shadow-sm">
+<div class="p-6 border-b border-gray-200 dark:border-[#3b4854]">
+<h2 class="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Change Password</h2>
+<p class="text-gray-500 dark:text-[#9cabba] text-sm mt-1">Update your password for enhanced security.</p>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
+<label class="flex flex-col">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal pb-2">Current Password</p>
+<div class="relative flex w-full items-stretch">
+<input class="form-input flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-[#3b4854] bg-background-light dark:bg-[#101922] h-12 placeholder:text-gray-400 dark:placeholder:text-[#9cabba] px-4 text-base font-normal" placeholder="Enter your current password" type="password" value=""/>
+</div>
+</label>
+<div class="flex flex-col">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal pb-2">New Password</p>
+<input class="form-input w-full resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-[#3b4854] bg-background-light dark:bg-[#101922] h-12 placeholder:text-gray-400 dark:placeholder:text-[#9cabba] px-4 text-base font-normal" placeholder="Enter your new password" value=""/>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 bg-gray-50 dark:bg-black/20 rounded-b-xl border-t border-gray-200 dark:border-[#3b4854] flex justify-end">
+<button class="bg-primary text-white font-medium py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors">Update Password</button>
+</div>
+</div>
+<!-- Two-Factor Authentication Card -->
+<div class="bg-white dark:bg-[#1b2127] rounded-xl border border-gray-200 dark:border-[#3b4854] shadow-sm">
+<div class="p-6 border-b border-gray-200 dark:border-[#3b4854]">
+<h2 class="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Two-Factor Authentication</h2>
+<p class="text-gray-500 dark:text-[#9cabba] text-sm mt-1">Add an extra layer of security to your account.</p>
+</div>
+<div class="p-6 flex items-center justify-between">
+<div>
+<h3 class="text-base font-medium text-gray-900 dark:text-white">Status: <span class="text-green-500 font-bold">Enabled</span></h3>
+<p class="text-sm text-gray-500 dark:text-[#9cabba] mt-1">Authenticator app is configured.</p>
+</div>
+<button class="bg-red-500/10 text-red-500 font-medium py-2 px-4 rounded-lg hover:bg-red-500/20 transition-colors">Disable 2FA</button>
+</div>
+</div>
+<!-- Active Sessions Card -->
+<div class="bg-white dark:bg-[#1b2127] rounded-xl border border-gray-200 dark:border-[#3b4854] shadow-sm">
+<div class="p-6 border-b border-gray-200 dark:border-[#3b4854] flex justify-between items-center">
+<div>
+<h2 class="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Active Sessions</h2>
+<p class="text-gray-500 dark:text-[#9cabba] text-sm mt-1">Manage devices logged into your account.</p>
+</div>
+<button class="bg-gray-200 dark:bg-[#283139] text-gray-800 dark:text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-300 dark:hover:bg-[#3b4854] transition-colors">Log out all sessions</button>
+</div>
+<ul class="divide-y divide-gray-200 dark:divide-[#3b4854]">
+<li class="p-6 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-gray-500 dark:text-[#9cabba] text-3xl">desktop_windows</span>
+<div>
+<p class="font-medium text-gray-900 dark:text-white">Chrome on Windows <span class="text-xs font-normal bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full px-2 py-0.5 ml-2">Current device</span></p>
+<p class="text-sm text-gray-500 dark:text-[#9cabba]">New York, USA - 192.168.1.1</p>
+</div>
+</div>
+<p class="text-sm text-gray-500 dark:text-[#9cabba]">Active now</p>
+</li>
+<li class="p-6 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-gray-500 dark:text-[#9cabba] text-3xl">phone_iphone</span>
+<div>
+<p class="font-medium text-gray-900 dark:text-white">Safari on iOS</p>
+<p class="text-sm text-gray-500 dark:text-[#9cabba]">New York, USA - 192.168.1.1</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<p class="text-sm text-gray-500 dark:text-[#9cabba]">Active 2 hours ago</p>
+<button class="text-sm text-primary font-medium">Log out</button>
+</div>
+</li>
+</ul>
+</div>
+<!-- Privacy Settings Card -->
+<div class="bg-white dark:bg-[#1b2127] rounded-xl border border-gray-200 dark:border-[#3b4854] shadow-sm">
+<div class="p-6 border-b border-gray-200 dark:border-[#3b4854]">
+<h2 class="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Privacy Settings</h2>
+<p class="text-gray-500 dark:text-[#9cabba] text-sm mt-1">Control how your information is shared across the platform.</p>
+</div>
+<ul class="divide-y divide-gray-200 dark:divide-[#3b4854]">
+<li class="p-6 flex items-center justify-between">
+<div>
+<p class="font-medium text-gray-900 dark:text-white">Show my email to classmates</p>
+<p class="text-sm text-gray-500 dark:text-[#9cabba]">Allow students in your courses to see your email address.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/80 rounded-full peer dark:bg-[#3b4854] peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</li>
+<li class="p-6 flex items-center justify-between">
+<div>
+<p class="font-medium text-gray-900 dark:text-white">Make my course schedule public</p>
+<p class="text-sm text-gray-500 dark:text-[#9cabba]">Allow anyone with a university account to view your schedule.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/80 rounded-full peer dark:bg-[#3b4854] peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</li>
+</ul>
+<div class="px-6 py-4 bg-gray-50 dark:bg-black/20 rounded-b-xl border-t border-gray-200 dark:border-[#3b4854] flex justify-end">
+<a class="text-sm text-primary font-medium hover:underline" href="#">View Full Privacy Policy</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

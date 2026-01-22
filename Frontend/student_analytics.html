@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="light dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AuthenTrack - Student Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#2563eb", "background-light": "#f5f7f8", "background-dark": "#0f1923"}, fontFamily: {display: "Lexend"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        html {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div id="navbar-placeholder"></div>
+<main class="flex-1 px-10 pb-12 pt-32">
+<div class="layout-content-container flex flex-col gap-8 w-full mx-auto flex-1" style="max-width: 100rem;">
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight tracking-tighter">Attendance Overview</h1>
+<p id="user-greeting" class="text-slate-600 dark:text-slate-400 text-base font-normal leading-normal">Welcome, Student. Here is your attendance summary.</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-6">
+<div class="flex-1 flex flex-col gap-6">
+<div class="border rounded-xl border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+<div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Overall Attendance</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Summary for the current semester</p>
+</div>
+<div class="flex items-center gap-1 rounded-lg bg-slate-100 dark:bg-slate-800 p-1">
+<button id="btn-week" class="time-filter-btn px-3 py-1.5 rounded-md text-slate-600 dark:text-slate-300 text-xs font-semibold hover:bg-white dark:hover:bg-slate-700/50" data-period="week">Week</button>
+<button id="btn-month" class="time-filter-btn px-3 py-1.5 rounded-md text-slate-600 dark:text-slate-300 text-xs font-semibold hover:bg-white dark:hover:bg-slate-700/50" data-period="month">Month</button>
+<button id="btn-semester" class="time-filter-btn px-3 py-1.5 rounded-md bg-white dark:bg-slate-700 text-primary dark:text-white text-xs font-semibold shadow-sm" data-period="semester">Semester</button>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+<div class="flex flex-col gap-2 border-r border-slate-200 dark:border-slate-800 pr-4">
+<p id="overall-attendance-percentage" class="text-3xl font-bold text-green-500">--%</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Present</p>
+</div>
+<div class="flex flex-col gap-2 md:border-r border-slate-200 dark:border-slate-800 pr-4">
+<p id="absent-percentage" class="text-3xl font-bold text-red-500">--%</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Absent</p>
+</div>
+<div class="flex flex-col gap-2 border-r border-slate-200 dark:border-slate-800 pr-4">
+<p id="total-classes" class="text-3xl font-bold text-slate-700 dark:text-slate-300">--</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Total Classes</p>
+</div>
+<div class="flex flex-col gap-2">
+<p id="missed-classes" class="text-3xl font-bold text-slate-700 dark:text-slate-300">--</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Missed Classes</p>
+</div>
+</div>
+</div>
+<div class="border rounded-xl border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+<div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Attendance Trends</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Monthly attendance percentage</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-xs text-slate-500 dark:text-slate-400">Your Attendance</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+<span class="text-xs text-slate-500 dark:text-slate-400">Class Average</span>
+</div>
+</div>
+</div>
+<div class="relative mt-6 h-72 mb-6">
+<div class="absolute inset-0 grid grid-rows-5 items-center">
+<div class="border-b border-dashed border-slate-200 dark:border-slate-800"><span class="text-xs text-slate-400 -translate-y-1/2">100%</span></div>
+<div class="border-b border-dashed border-slate-200 dark:border-slate-800"><span class="text-xs text-slate-400 -translate-y-1/2">75%</span></div>
+<div class="border-b border-dashed border-slate-200 dark:border-slate-800"><span class="text-xs text-slate-400 -translate-y-1/2">50%</span></div>
+<div class="border-b border-dashed border-slate-200 dark:border-slate-800"><span class="text-xs text-slate-400 -translate-y-1/2">25%</span></div>
+<div class=""><span class="text-xs text-slate-400 -translate-y-1/2">0%</span></div>
+</div>
+<div class="absolute inset-0 pl-10 pr-4 flex items-end">
+<svg class="w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 450 288" xmlns="http://www.w3.org/2000/svg">
+<path class="stroke-slate-300 dark:stroke-slate-600" d="M0 72L50 86.4L100 79.2L150 57.6L200 43.2L250 50.4L300 36L350 28.8L400 43.2L450 57.6" stroke-width="2"></path>
+<path class="stroke-primary" d="M0 28.8L50 36L100 50.4L150 36L200 21.6L250 28.8L300 14.4L350 21.6L400 28.8L450 43.2" stroke-width="2"></path>
+<circle class="fill-primary" cx="0" cy="28.8" r="4"></circle>
+<circle class="fill-primary" cx="50" cy="36" r="4"></circle>
+<circle class="fill-primary" cx="100" cy="50.4" r="4"></circle>
+<circle class="fill-primary" cx="150" cy="36" r="4"></circle>
+<circle class="fill-primary" cx="200" cy="21.6" r="4"></circle>
+<circle class="fill-primary" cx="250" cy="28.8" r="4"></circle>
+<circle class="fill-primary" cx="300" cy="14.4" r="4"></circle>
+<circle class="fill-primary" cx="350" cy="21.6" r="4"></circle>
+<circle class="fill-primary" cx="400" cy="28.8" r="4"></circle>
+<circle class="fill-primary" cx="450" cy="43.2" r="4"></circle>
+</svg>
+</div>
+<div class="absolute bottom-0 -mb-6 left-0 right-0 flex justify-between pl-10 pr-4">
+<span class="text-xs text-slate-500 dark:text-slate-400">Jan</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Feb</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Mar</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Apr</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">May</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Jun</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Jul</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Aug</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Sep</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Oct</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-96 flex-shrink-0 flex flex-col gap-6">
+<div class="border rounded-xl border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Class Details</h3>
+<div class="relative mt-4">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-base">search</span>
+<select id="class-select" class="h-12 w-full appearance-none rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 pl-10 pr-8 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-primary text-sm">
+<option value="">Select a class</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-base pointer-events-none">expand_more</span>
+</div>
+<div class="mt-6 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<p class="text-sm text-slate-500 dark:text-slate-400">Attendance Rate</p>
+<p id="class-attendance-rate" class="text-sm font-bold text-green-500">--%</p>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-sm text-slate-500 dark:text-slate-400">Classes Attended</p>
+<p id="class-attended-count" class="text-sm font-semibold text-slate-700 dark:text-slate-300">-- / --</p>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-sm text-slate-500 dark:text-slate-400">Absences</p>
+<p id="class-absences" class="text-sm font-semibold text-slate-700 dark:text-slate-300">--</p>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-sm text-slate-500 dark:text-slate-400">Last Absence</p>
+<p id="class-last-absence" class="text-sm font-semibold text-slate-700 dark:text-slate-300">--</p>
+</div>
+</div>
+</div>
+<div class="border rounded-xl border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Attendance Issue?</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">If you believe there's an error, please report it here.</p>
+<button id="report-issue-btn" class="mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg h-11 px-6 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-base">report</span>
+<span class="truncate">Report an Issue</span>
+</button>
+</div>
+<div class="border rounded-xl border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Get Report</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Receive a detailed attendance report in your inbox.</p>
+<button id="email-report-btn" class="mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg h-11 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-base">mail</span>
+<span class="truncate">Email My Report</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+<script src="navbar.js"></script>
+<script src="student_analytics.js"></script>
+</body></html>

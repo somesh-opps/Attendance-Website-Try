@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Create Account - AttendHub</title>
+    <meta name="description" content="Create your AttendHub account to start tracking your attendance and academic progress"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb",
+                        "primary-dark": "#1d4ed8",
+                        "accent": "#1e3a8a",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient': 'gradient 8s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .glass {
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .blob {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: blob 7s ease-in-out infinite;
+        }
+        
+        @keyframes blob {
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(-45deg, #2563eb, #1e3a8a, #1d4ed8, #2563eb);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Hide scrollbar for IE, Edge and Firefox */
+        html {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        /* Hide scrollbar for specific elements */
+        * {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+        }
+        
+        *::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 dark:bg-gray-950 transition-colors duration-500 overflow-x-hidden">
+    
+    <!-- Background Image -->
+    <div class="fixed inset-0">
+        <img 
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCokyg0aeK6YVmICtGt40Dn0rYkS4XGWzkSB6DKWdfcTtl6JTJdAuAStx00ScQ1EedJWrkUmphX1PsOXbEKA8KDfnu65oX5U4CUfxR3MEOwK1Ihn93gO3wICTvzqGZwq1voNQz3c-FopKE-YNAL9uh0bXy0idnB2CfdlNTshnbbfZ14Q6M5SLaqjaFMlnVUtufXhXL1vhGUuHfMX2y5XBr4qNqU2QMJ7aAWNJHgNvSY5WbE7mARKn5lGAovrkxw4m_WjC3Yt8V42Ig"
+            alt="University campus building"
+            class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-800/80 to-gray-900/90"></div>
+    </div>
+    
+    <!-- Animated Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="blob absolute top-0 -left-20 w-96 h-96 bg-white/10 blur-3xl"></div>
+        <div class="blob absolute bottom-0 -right-20 w-96 h-96 bg-white/10 blur-3xl" style="animation-delay: 2s;"></div>
+        <div class="blob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-white/5 blur-3xl" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="relative min-h-screen flex items-center justify-center p-4 py-12">
+        <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            
+            <!-- Left Side - Branding -->
+            <div class="hidden lg:flex flex-col justify-center text-white space-y-8 animate-float">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3 mb-8">
+                        <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                            <span class="material-icons text-white text-3xl">school</span>
+                        </div>
+                        <h1 class="text-4xl font-black">AttendHub</h1>
+                    </div>
+                    
+                    <h2 class="text-5xl font-black leading-tight">
+                        Join Us Today!
+                    </h2>
+                    <p class="text-xl text-white/80 leading-relaxed max-w-md">
+                        Start your journey with modern attendance tracking and comprehensive academic progress monitoring.
+                    </p>
+                </div>
+                
+                <div class="space-y-4 max-w-md">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons text-white">check_circle</span>
+                        </div>
+                        <p class="text-white/90">Real-time attendance tracking</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons text-white">check_circle</span>
+                        </div>
+                        <p class="text-white/90">Detailed analytics & insights</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons text-white">check_circle</span>
+                        </div>
+                        <p class="text-white/90">Instant notifications</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Registration Form -->
+            <div class="w-full">
+                <div class="glass rounded-3xl shadow-2xl p-8 md:p-10 border border-white/20 max-h-[90vh] overflow-y-auto">
+                    <div class="text-center mb-6">
+                        <h2 class="text-3xl md:text-4xl font-black text-white mb-2">
+                            Create Account
+                        </h2>
+                        <p class="text-gray-400">
+                            Fill in your details to get started
+                        </p>
+                    </div>
+
+                    <form class="space-y-4">
+                        <!-- Full Name -->
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-semibold text-gray-300" for="full-name">
+                                Full Name
+                            </label>
+                            <div class="relative">
+                                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">person</span>
+                                <input 
+                                    class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                    id="full-name" 
+                                    placeholder="Enter your full name" 
+                                    type="text"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Student ID -->
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-semibold text-gray-300" for="user-id">
+                                Student ID / Faculty ID
+                            </label>
+                            <div class="relative">
+                                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">badge</span>
+                                <input 
+                                    class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                    id="user-id" 
+                                    placeholder="Enter your ID number" 
+                                    type="text"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Registration No -->
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-semibold text-gray-300" for="registration-no">
+                                Registration No
+                            </label>
+                            <div class="relative">
+                                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">confirmation_number</span>
+                                <input 
+                                    class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                    id="registration-no" 
+                                    placeholder="Enter your registration number" 
+                                    type="text"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Email with Verify Button -->
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-semibold text-gray-300" for="email">
+                                Email Address
+                            </label>
+                            <div class="flex gap-2">
+                                <div class="relative flex-1">
+                                    <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">email</span>
+                                    <input 
+                                        class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                        id="email" 
+                                        placeholder="Enter your email" 
+                                        type="email"
+                                    />
+                                </div>
+                                <button 
+                                    id="email-verify-btn"
+                                    type="button" 
+                                    class="px-5 py-3.5 bg-primary/10 text-primary font-bold rounded-xl hover:bg-primary/20 transition-colors border-2 border-primary/20"
+                                >
+                                    Verify
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- OTP Section (Hidden by default) -->
+                        <div id="otp-section" class="hidden space-y-1.5">
+                            <label class="text-sm font-semibold text-gray-300" for="otp">
+                                OTP Code
+                            </label>
+                            <div class="flex gap-2">
+                                <div class="relative flex-1">
+                                    <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">pin</span>
+                                    <input 
+                                        class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                        id="otp" 
+                                        placeholder="Enter OTP" 
+                                        type="text"
+                                        inputmode="numeric"
+                                    />
+                                </div>
+                                <button 
+                                    id="otp-verify-btn"
+                                    type="button" 
+                                    class="px-5 py-3.5 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:shadow-lg transition-all"
+                                >
+                                    Verify OTP
+                                </button>
+                            </div>
+                            <p id="otp-status" class="text-sm text-gray-500 dark:text-gray-400"></p>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-semibold text-gray-300" for="password">
+                                Password
+                            </label>
+                            <div class="relative">
+                                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">lock</span>
+                                <input 
+                                    class="w-full pl-12 pr-12 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                    id="password" 
+                                    placeholder="Create a password" 
+                                    type="password"
+                                />
+                                <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-300 transition-colors">
+                                    <span class="material-icons">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-semibold text-gray-300" for="confirm-password">
+                                Confirm Password
+                            </label>
+                            <div class="relative">
+                                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">lock</span>
+                                <input 
+                                    class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                    id="confirm-password" 
+                                    placeholder="Confirm your password" 
+                                    type="password"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Role Selection -->
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-semibold text-gray-300" for="role">
+                                Role
+                            </label>
+                            <div class="relative">
+                                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">group</span>
+                                <select 
+                                    class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300 appearance-none cursor-pointer" 
+                                    id="role"
+                                >
+                                    <option>Select your role</option>
+                                    <option>Student</option>
+                                </select>
+                                <span class="material-icons absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">expand_more</span>
+                            </div>
+                        </div>
+
+                        <!-- Extra Fields (Hidden by default) -->
+                        <div id="extra-fields" class="hidden space-y-4 pt-2">
+                            <!-- Department -->
+                            <div class="space-y-1.5">
+                                <label class="text-sm font-semibold text-gray-300" for="department">
+                                    Department
+                                </label>
+                                <div class="relative">
+                                    <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">business</span>
+                                    <select 
+                                        class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300 appearance-none cursor-pointer" 
+                                        id="department"
+                                    >
+                                        <option value="">Select your department</option>
+                                        <option value="CSE">Computer Science & Engineering</option>
+                                        <option value="ECE">Electronics & Communication Engineering</option>
+                                        <option value="EEE">Electrical & Electronics Engineering</option>
+                                        <option value="ME">Mechanical Engineering</option>
+                                        <option value="CE">Civil Engineering</option>
+                                        <option value="IT">Information Technology</option>
+                                        <option value="BT">Biotechnology</option>
+                                        <option value="CHE">Chemical Engineering</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span class="material-icons absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">expand_more</span>
+                                </div>
+                            </div>
+
+                            <!-- Year -->
+                            <div class="space-y-1.5">
+                                <label class="text-sm font-semibold text-gray-300" for="year">
+                                    Year
+                                </label>
+                                <div class="relative">
+                                    <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">calendar_today</span>
+                                    <input 
+                                        class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                        id="year" 
+                                        placeholder="Enter your year" 
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- Class Roll -->
+                            <div class="space-y-1.5">
+                                <label class="text-sm font-semibold text-gray-300" for="class-roll">
+                                    Class Roll No
+                                </label>
+                                <div class="relative">
+                                    <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">numbers</span>
+                                    <input 
+                                        class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                        id="class-roll" 
+                                        placeholder="Enter your class roll number" 
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- Section -->
+                            <div class="space-y-1.5">
+                                <label class="text-sm font-semibold text-gray-300" for="section">
+                                    Section
+                                </label>
+                                <div class="relative">
+                                    <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-xl">class</span>
+                                    <input 
+                                        class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                        id="section" 
+                                        placeholder="Enter your section" 
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Register Button -->
+                        <button 
+                            id="register-btn"
+                            type="submit"
+                            class="w-full bg-gradient-to-r from-primary to-accent text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center space-x-2 mt-6"
+                        >
+                            <span>Create Account</span>
+                            <span class="material-icons">arrow_forward</span>
+                        </button>
+                    </form>
+
+                    <!-- Sign In Link -->
+                    <p class="mt-6 text-center text-sm text-gray-400">
+                        Already have an account? 
+                        <a class="font-bold text-primary hover:text-primary-dark transition-colors" href="Login.html">
+                            Sign In
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="account_creation.js"></script>
+</body>
+</html>

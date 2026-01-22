@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AuthenTrack - Notifications Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2563eb",
+            "background-light": "#f5f7f8",
+            "background-dark": "#0f1923",
+          },
+          fontFamily: {
+            "display": ["Lexend", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div id="navbar-placeholder"></div>
+<main class="flex-1 px-4 md:px-10 pb-12 pt-32">
+<div class="layout-content-container flex flex-col gap-6 w-full max-w-7xl mx-auto flex-1">
+<div class="flex flex-wrap justify-between gap-4 items-center mb-2">
+<p class="text-black dark:text-white text-3xl font-bold leading-tight tracking-[-0.033em]">Notifications</p>
+</div>
+<div class="flex flex-col items-center justify-center flex-1 min-h-[calc(100vh-12rem)] bg-gray-100 dark:bg-transparent border border-gray-200 dark:border-gray-800 rounded-xl p-8 text-center">
+    <div class="bg-primary/10 p-6 rounded-full mb-6">
+        <span class="material-symbols-outlined text-6xl text-primary">construction</span>
+    </div>
+    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-3">Work in Progress</h2>
+    <p class="text-slate-600 dark:text-slate-400 max-w-md text-lg">
+        We are currently building the notification system to keep you updated. Please check back later!
+    </p>
+</div>
+</main>
+</div>
+</div>
+<script src="navbar.js"></script>
+</body></html>

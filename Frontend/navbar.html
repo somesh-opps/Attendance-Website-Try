@@ -1,0 +1,97 @@
+<header class="flex flex-col border border-solid border-slate-200 dark:border-slate-800 px-6 md:px-10 py-4 bg-white/80 dark:bg-background-dark/80 fixed top-6 left-1/2 -translate-x-1/2 z-50 backdrop-blur-sm rounded-2xl w-[calc(100%-3rem)] max-w-7xl shadow-lg transition-all duration-300">
+    <div class="flex items-center justify-between w-full">
+        <div class="flex items-center gap-4 text-slate-900 dark:text-white">
+            <div class="size-6 text-primary">
+                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+                </svg>
+            </div>
+            <h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">AuthenTrack</h2>
+        </div>
+        
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8" id="desktop-nav">
+            <a class="nav-link relative text-sm font-medium leading-normal text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors group" href="student_home.html" data-page="student_home">
+                Home
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+            </a>
+            <a class="nav-link relative text-sm font-medium leading-normal text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors group" href="student_analytics.html" data-page="student_analytics">
+                Analytics
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+            </a>
+            <a class="nav-link relative text-sm font-medium leading-normal text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors group" href="subject_routine.html" data-page="subject_routine">
+                Subjects & Weekly Routine
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+            </a>
+            <a class="nav-link relative text-sm font-medium leading-normal text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors group" href="student_settings.html" data-page="student_settings">
+                Settings
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+            </a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="student_notification.html" class="relative text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-primary ring-2 ring-white dark:ring-background-dark"></span>
+            </a>
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 cursor-pointer" data-alt="User avatar image" style='background-image: url("images/profileimage.png");'></div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-900 dark:text-white p-1">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden w-full pt-4 pb-2 flex-col gap-4 md:hidden border-t border-slate-100 dark:border-slate-700 mt-4">
+        <a class="mobile-nav-link relative text-sm font-medium leading-normal text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors block py-2 group" href="student_home.html" data-page="student_home">
+            Home
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+        </a>
+        <a class="mobile-nav-link relative text-sm font-medium leading-normal text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors block py-2 group" href="student_analytics.html" data-page="student_analytics">
+            Analytics
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+        </a>
+        <a class="mobile-nav-link relative text-sm font-medium leading-normal text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors block py-2 group" href="student_settings.html" data-page="student_settings">
+            Settings
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+        </a>
+    </div>
+</header>
+
+<style>
+    /* Active state - keeps underline visible */
+    .nav-link.active span,
+    .mobile-nav-link.active span {
+        transform: scaleX(1) !important;
+    }
+    
+    .nav-link.active,
+    .mobile-nav-link.active {
+        color: #2563eb !important;
+    }
+    
+    /* Dark mode active state */
+    .dark .nav-link.active,
+    .dark .mobile-nav-link.active {
+        color: #2563eb !important;
+    }
+</style>
+
+<script>
+    // Detect current page and add active class
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPage = window.location.pathname.split('/').pop().replace('.html', '');
+        
+        // Get all nav links
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+        
+        navLinks.forEach(link => {
+            const linkPage = link.getAttribute('data-page');
+            if (linkPage === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>

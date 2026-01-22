@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="light dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AuthenTrack - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        html {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#2563eb", "background-light": "#f5f7f8", "background-dark": "#0f1923"}, fontFamily: {display: "Lexend"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="flex flex-col grow">
+<div id="navbar-placeholder"></div>
+<div class="flex flex-1 pt-28">
+<aside class="fixed top-28 bottom-0 left-0 w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark p-4 hidden md:flex flex-col justify-between overflow-y-auto z-40">
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-2 pt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10" href="#">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">person</span>
+<p class="text-primary text-sm font-bold leading-normal">Profile</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="student_notification.html">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300 text-2xl">notifications</span>
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal">Notifications</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="security.html">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300 text-2xl">shield</span>
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal">Security</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300 text-2xl">gavel</span>
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal">Terms &amp; Conditions</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300 text-2xl">help</span>
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal">Help &amp; Support</p>
+</a>
+</div>
+</div>
+</aside>
+<main class="flex-1 p-6 md:p-10 md:ml-64">
+<div class="max-w-4xl mx-auto">
+<div class="flex flex-wrap justify-between gap-3 mb-8">
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Profile Settings</h1>
+<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-normal">Manage your personal information and password.</p>
+</div>
+</div>
+<div class="flex flex-col gap-8">
+<section class="bg-white dark:bg-slate-900/50 rounded-xl shadow-sm">
+<div class="p-6 flex flex-col sm:flex-row items-center gap-6">
+<div class="relative size-32 flex-shrink-0 group">
+<div id="profile-image-preview" class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-32" style='background-image: url("images/profileimage.png");'></div>
+<button id="edit-profile-btn" class="absolute bottom-0 right-0 flex items-center justify-center size-9 rounded-full bg-primary text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 dark:focus:ring-offset-slate-900 transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</div>
+<div class="flex flex-col gap-2 text-center sm:text-left">
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Your Profile Picture</h2>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">This is your student profile picture.</p>
+<div id="profile-actions" class="hidden items-center justify-center sm:justify-start gap-2 mt-2">
+<input type="file" id="profile-upload" class="hidden" accept="image/*">
+<button id="upload-btn" class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-3 hover:bg-primary/90">
+<span class="material-symbols-outlined text-base">upload</span>
+<span>Upload Photo</span>
+</button>
+<button id="save-btn" class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-3 hover:bg-primary/90">
+<span class="material-symbols-outlined text-base">save</span>
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white dark:bg-slate-900/50 rounded-xl shadow-sm">
+<div class="border-b border-slate-200 dark:border-slate-800">
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-6 py-4">Personal Information</h2>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Full Name</p>
+<input id="settings-name" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-500 dark:text-slate-400 focus:outline-0 focus:ring-0 border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 h-12 p-3 text-base font-normal leading-normal cursor-not-allowed" readonly="" value="--"/>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Email Address</p>
+<input id="settings-email" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-500 dark:text-slate-400 focus:outline-0 focus:ring-0 border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 h-12 p-3 text-base font-normal leading-normal cursor-not-allowed" readonly="" value="--"/>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Registration No.</p>
+<input id="settings-reg" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-500 dark:text-slate-400 focus:outline-0 focus:ring-0 border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 h-12 p-3 text-base font-normal leading-normal cursor-not-allowed" readonly="" value="--"/>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Enrollment No.</p>
+<input id="settings-enroll" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-500 dark:text-slate-400 focus:outline-0 focus:ring-0 border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 h-12 p-3 text-base font-normal leading-normal cursor-not-allowed" readonly="" value="--"/>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Role</p>
+<input id="settings-role" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-500 dark:text-slate-400 focus:outline-0 focus:ring-0 border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 h-12 p-3 text-base font-normal leading-normal cursor-not-allowed" readonly="" value="Student"/>
+</label>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+<script src="navbar.js"></script>
+<script src="student_settings.js"></script>
+</body></html>

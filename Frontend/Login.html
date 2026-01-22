@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Login - AuthenTrack</title>
+    <meta name="description" content="Login to your AuthenTrack account to track your attendance and academic progress"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb",
+                        "primary-dark": "#1d4ed8",
+                        "accent": "#1e3a8a",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient': 'gradient 8s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .glass {
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .blob {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: blob 7s ease-in-out infinite;
+        }
+        
+        @keyframes blob {
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(-45deg, #2563eb, #1e3a8a, #1d4ed8, #2563eb);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 dark:bg-gray-950 transition-colors duration-500 overflow-hidden">
+    
+    <!-- Background Image -->
+    <div class="fixed inset-0">
+        <img 
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk3CODszHthO2Sj4I3o3PZHBjoSCxKSfoqnvPkM4ae4kmxE_f8BdWl4wxeC0_OrJl93vg-UPHM3KNEzvVovED73kYzlWW25go5h-sXC0YCTWMBjFomU9M8TI3KxXaS2w1YIIq9-9P9Bvpi7iLEgX1i2NPc_4XBakIJOsU_LBmmjfS91RF221YAsM4NktPaEpgBNZoQ4XjxQu2NEzljf6fToYePKhgkgNfrKBmCsfA0UhwxzYjyGzruxgs2Ef9e2ApY7K2h_DJZe6g"
+            alt="University campus"
+            class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-800/80 to-gray-900/90"></div>
+    </div>
+    
+    <!-- Animated Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="blob absolute top-0 -left-20 w-96 h-96 bg-white/10 blur-3xl"></div>
+        <div class="blob absolute bottom-0 -right-20 w-96 h-96 bg-white/10 blur-3xl" style="animation-delay: 2s;"></div>
+        <div class="blob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-white/5 blur-3xl" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="relative min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            
+            <!-- Left Side - Branding -->
+            <div class="hidden lg:flex flex-col justify-center text-white space-y-8 animate-float">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3 mb-8">
+                        <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                            <span class="material-icons text-white text-3xl">school</span>
+                        </div>
+                        <h1 class="text-4xl font-black">AuthenTrack</h1>
+                    </div>
+                    
+                    <h2 class="text-5xl font-black leading-tight">
+                        Welcome Back!
+                    </h2>
+                    <p class="text-xl text-white/80 leading-relaxed max-w-md">
+                        Track your attendance, monitor your progress, and stay on top of your academic journey.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Side - Login Form -->
+            <div class="w-full">
+                <div class="glass rounded-3xl shadow-2xl p-8 md:p-12 border border-white/20">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl md:text-4xl font-black text-white mb-2">
+                            Sign In
+                        </h2>
+                        <p class="text-gray-400">
+                            Enter your credentials to access your account
+                        </p>
+                    </div>
+
+                    <form class="space-y-6">
+                        <!-- Student ID -->
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-300" for="student-id">
+                                Student ID
+                            </label>
+                            <div class="relative">
+                                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">person</span>
+                                <input 
+                                    class="w-full pl-12 pr-4 py-4 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                    id="student-id" 
+                                    placeholder="Enter your Student ID" 
+                                    type="text"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-300" for="password">
+                                Password
+                            </label>
+                            <div class="relative">
+                                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">lock</span>
+                                <input 
+                                    class="w-full pl-12 pr-12 py-4 bg-gray-900 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300" 
+                                    id="password" 
+                                    placeholder="Enter your password" 
+                                    type="password"
+                                />
+                                <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors">
+                                    <span class="material-icons">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Forgot Password -->
+                        <div class="flex items-center justify-between">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded border-gray-600 bg-gray-900 text-primary focus:ring-primary focus:ring-offset-0"/>
+                                <span class="text-sm text-gray-400">Remember me</span>
+                            </label>
+                            <a class="text-sm font-semibold text-primary hover:text-primary-dark transition-colors" href="Password_reset.html">
+                                Forgot Password?
+                            </a>
+                        </div>
+
+                        <!-- Login Button -->
+                        <button 
+                            type="submit"
+                            class="w-full bg-gradient-to-r from-primary to-accent text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center space-x-2"
+                        >
+                            <span>Sign In</span>
+                            <span class="material-icons">arrow_forward</span>
+                        </button>
+                    </form>
+
+                    <!-- Sign Up Link -->
+                    <p class="mt-8 text-center text-sm text-gray-400">
+                        Don't have an account? 
+                        <a class="font-bold text-primary hover:text-primary-dark transition-colors" href="Account_Creation.html">
+                            Create Account
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="light dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AuthenTrack - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb",
+                        "primary-dark": "#1d4ed8",
+                        "accent": "#1e3a8a",
+                        "accent-dark": "#1e40af",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923"
+                    },
+                    fontFamily: {
+                        display: "Lexend"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        html {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div id="navbar-placeholder"></div>
+<main class="flex-1 flex flex-col pt-32">
+    <!-- Welcome Message - Upper Left -->
+    <div class="px-10 lg:px-16 pb-6 ml-20 lg:ml-40 animate-fade-in">
+        <h2 class="text-3xl md:text-5xl font-black bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 leading-tight">
+            Welcome Back!
+        </h2>
+        <p id="welcome-name" class="text-slate-700 dark:text-white text-xl md:text-2xl font-bold">
+            Loading...
+        </p>
+    </div>
+    
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2">
+        <div class="p-10 lg:p-16 flex flex-col justify-center">
+            <div class="max-w-xl mx-auto w-full">
+                
+<h1 class="text-slate-900 dark:text-slate-50 text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Student Profile</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2">Comprehensive information about the student's academic journey.</p>
+<div class="mt-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6">
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Name</p>
+<p id="student-name" class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">--</p>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Registration No</p>
+<p id="registration-no" class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">--</p>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Enrollment No</p>
+<p id="enrollment-no" class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">--</p>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Department</p>
+<p id="department" class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">--</p>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Section</p>
+<p id="section" class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">--</p>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Roll No</p>
+<p id="roll-no" class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">--</p>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Current Semester</p>
+<p id="semester" class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">--</p>
+</div>
+<div class="flex flex-col gap-1.5">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Status</p>
+<div class="flex items-center gap-2">
+<span id="status-indicator" class="inline-block h-2.5 w-2.5 rounded-full bg-gray-300"></span>
+<p id="status-text" class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">--</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="relative min-h-[400px] lg:min-h-0 flex items-center justify-center p-8 lg:p-16">
+<div id="profile-image-container" class="relative aspect-[3/4] h-full max-h-[600px] w-auto max-w-full rounded-xl shadow-2xl shadow-primary/20 dark:shadow-primary/10 transition-all duration-300 cursor-pointer" style="transform-style: preserve-3d;">
+<div id="profile-image" class="absolute inset-0 w-full h-full bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Portrait of a smiling female student" style='background-image: url("");'></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<script src="navbar.js"></script>
+<script src="student_home.js"></script>
+<script>
+    // 3D Tilt Effect on Profile Image
+    const imageContainer = document.getElementById('profile-image-container');
+    
+    if (imageContainer) {
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left; // Mouse X position within element
+            const y = e.clientY - rect.top;  // Mouse Y position within element
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Calculate rotation based on mouse position
+            const rotateX = ((y - centerY) / centerY) * -15; // Max 15 degrees
+            const rotateY = ((x - centerX) / centerX) * 15;  // Max 15 degrees
+            
+            // Apply 3D transform
+            imageContainer.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            imageContainer.style.boxShadow = `${rotateY * 2}px ${-rotateX * 2}px 40px rgba(37, 99, 235, 0.3)`;
+        });
+        
+        imageContainer.addEventListener('mouseleave', () => {
+            // Reset to original position
+            imageContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            imageContainer.style.boxShadow = '';
+        });
+    }
+</script>
+</body></html>
